@@ -7,7 +7,17 @@ import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import ChatIcon from "@material-ui/icons/Chat";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import avatar from "./image/avatar.jpg";
+import { auth } from "./Firebase";
+import { logout } from "./features/userSlice";
+import { useDispatch } from "react-redux";
+
 function Header() {
+  const dispatch = useDispatch();
+
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
   return (
     <div className="header">
       <div className="header__left">
@@ -18,7 +28,7 @@ function Header() {
         />
         <div className="header__search">
           <SearchIcon />
-          <input type="text" />
+          <input placeholder="Search" type="text" />
         </div>
       </div>
       <div className="header__right">
@@ -27,7 +37,7 @@ function Header() {
         <HeaderOption title="Jobs" Icon={BusinessCenterIcon} />
         <HeaderOption title="Messaging" Icon={ChatIcon} />
         <HeaderOption title="Notifiactions" Icon={NotificationsIcon} />
-        <HeaderOption avatar={avatar} title="me" />
+        <HeaderOption avatar={avatar} title="me" onClick={logoutOfApp} />
       </div>
     </div>
   );
