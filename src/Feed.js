@@ -9,8 +9,12 @@ import Post from "./Post";
 import { useEffect, useState } from "react";
 import { db } from "./Firebase";
 import firebase from "firebase";
+import { selectUser } from "./features/userSlice";
+import { useSelector } from "react-redux";
 
 function Feed() {
+  const user = useSelector(selectUser);
+
   const [input, setInput] = useState("");
   const [posts, setPosts] = useState([]);
 
@@ -31,10 +35,10 @@ function Feed() {
     e.preventDefault();
 
     db.collection("posts").add({
-      name: "Kapil Gupta",
-      description: "this is a test",
+      name: user.display,
+      description: user.email,
       message: input,
-      photoUrl: "",
+      photoUrl: user.photoUrl || "",
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
