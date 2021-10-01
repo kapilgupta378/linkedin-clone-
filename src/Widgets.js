@@ -1,6 +1,6 @@
 import InfoIcon from "@material-ui/icons/Info";
-import "./Widgets.css";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import "./Widgets.css";
 
 function Widgets() {
   const newArticle = (heading, subtitle) => {
@@ -23,16 +23,6 @@ function Widgets() {
         <h2>LinkedIn News</h2>
         <InfoIcon />
       </div>
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
-      {newArticle("kapil gupta", "top news")}
       {newArticle("kapil gupta", "top news")}
     </div>
   );
